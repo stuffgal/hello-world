@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args){
+		String heroName;
+		Scanner scanner = new Scanner(System.in);
+		Integer menu = 0;
+		Player player;
+		
+		System.out.println("Hello and welcome to Hero's Quest! It's up to you to defeat the dragon!");
+		System.out.println("So tell me, what is your name?");
+		
+		heroName = scanner.nextLine();
+		player = new Player(heroName);
+		
+		System.out.println("Wonderful, welcome aboard, " + heroName + "!");
+		
+		while (menu != 5){
+			System.out.println("What will you do?");
+			
+			try {
+				menu = scanner.nextInt();
+			}
+			catch (InputMismatchException e){
+				menu = 0;
+				scanner.reset();
+				//scanner.close();
+				//scanner = new Scanner
+			}
+						
+			if (menu == 1){
+				System.out.println("Battle!");
+			}
+			
+			/*else if (menu == "2"){
+				System.out.println("Go to town!");
+			}
+			
+			else if (menu == "3"){
+				System.out.println("Fight the boss!");
+			}
+			
+			else if (menu == "4"){
+				System.out.println("Check status!");
+			}*/
+			
+			else {
+				System.out.println("Sorry, that is not a valid input. Please try again!");
+				System.out.println();
+			}
+			menu = 0;
+			/*
+			 * 1. Go to battle
+			 * 2. Buy equipment
+			 * 3. Fight the dragon (need to fulfill required level first)
+			 * 4. exit
+			 */
+		}
+		
+		scanner.close();
+	}
+}
